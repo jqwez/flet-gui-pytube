@@ -14,7 +14,6 @@ def main(page: ft.Page):
 
     def pick_file_result(e: ft.FilePickerResultEvent):
         selected_path.value = pick_file_dialog.result.path + ".mp4"
-        
         page.update()
 
 
@@ -24,9 +23,20 @@ def main(page: ft.Page):
             page.update()
         else:
             url_input.error_text = None
-            run_backend(url_input.value, selected_path.value)
+            run_backend(url_input.value, selected_path.value, in_progress, on_complete, handle_error)
             page.update()
-            pass
+
+    def in_progress(*args):
+        download_complete.value = "Download In Progress"
+        page.update()
+    
+    def on_complete(*args):
+        download_complete.value = "Download Complete"
+        page.update()
+
+    def handle_error(*args):
+        download_complete.value = "Something went wrong, try again"
+        page.update()
     
 
     url_input = ft.TextField(label="Video URL")
@@ -43,6 +53,9 @@ def main(page: ft.Page):
     selected_path.value = "File Save Location"
 
     download_button = ft.TextButton("Download", on_click=handle_submit)
+    
+    download_complete = ft.Text()
+
 
     page.add(
         ft.Column(
@@ -60,7 +73,11 @@ def main(page: ft.Page):
                     download_button,
                 ],
                 alignment=ft.MainAxisAlignment.CENTER
-                    )
+                    ),
+                ft.Row([
+                    download_complete
+                ],
+                alignment=ft.MainAxisAlignment.CENTER)
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             spacing=50
