@@ -1,5 +1,9 @@
 import flet as ft
 
+
+# set by main
+run_backend = None
+
 def main(page: ft.Page):
     page.title = "CodingJQ Youtube Downloader"
     page.vertical_alignment = "center"
@@ -20,6 +24,7 @@ def main(page: ft.Page):
             page.update()
         else:
             url_input.error_text = None
+            run_backend(url_input.value, selected_path.value)
             page.update()
             pass
     
@@ -57,8 +62,14 @@ def main(page: ft.Page):
                 alignment=ft.MainAxisAlignment.CENTER
                     )
             ],
-            alignment=ft.MainAxisAlignment.CENTER
+            alignment=ft.MainAxisAlignment.CENTER,
+            spacing=50
         )
     )
 
-ft.app(target=main)
+def run_gui():
+    ft.app(target=main)
+
+
+if __name__ == "__main__":
+    run_gui()
