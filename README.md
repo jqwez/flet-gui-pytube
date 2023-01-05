@@ -9,7 +9,7 @@ Built Jan 5 2023 in order to provide a cross-platform Flet driven GUI applicatio
 
 Required modules are provided in requirements.txt. Simply execute navigate to the workind directory and execute: 
 
-pip install requirements.txt
+pip install -r requirements.txt
 
 On any platform run:
 
