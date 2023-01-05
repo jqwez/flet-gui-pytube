@@ -1,4 +1,6 @@
-# flet-gui-pytube
+# CodingJQ Youtube Downloader
+### flet-gui-pytube
+
 Flet Frontend to Pytube
 
 Built Jan 5 2023 in order to provide a cross-platform Flet driven GUI application to download youtube videos by URL.
@@ -22,5 +24,9 @@ flet pack main.py
 
 ### Thanks
 
-flet.dev
+flet.dev 
+
+pytube.io
+
 youtube.com/@shift6436
+
