@@ -20,7 +20,10 @@ To build a standalone application (Windows) run:
 
 flet pack main.py
 
-## info.jervas.com
+## Personal Page
+<a href="https://info.jervas.com">
+ info.jervas.com
+</a>
 
 ### Thanks
 
